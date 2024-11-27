@@ -36,27 +36,27 @@
             }
         }
 
-        #orobo {
+        #orobo-container {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Avstånd mellan bild och text */
             display: none; /* Dold tills den visas */
-            display: flex; /* Gör så att bilden och texten visas bredvid varandra */
-            align-items: center; /* Centrera text och bild vertikalt */
-            gap: 20px; /* Avstånd mellan text och bild */
         }
 
-        #orobo img {
+        #orobo-container img {
             width: 150px; /* Gör bilden mindre */
             height: auto;
             border: 3px solid lime;
         }
 
-        #orobo p {
-            margin: 0; /* Ta bort standardmarginalen */
-            font-size: 24px; /* Större text */
-            font-weight: bold; /* Fet text */
+        #orobo-container p {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
             color: red; /* Gör texten röd */
         }
     </style>
@@ -64,13 +64,14 @@
 <body>
     <h1>Hacking in Progress...</h1>
     <div id="terminal">Initializing system...\n</div>
-    <div id="orobo">
+    <div id="orobo-container">
         <img src="9099eac2-c3d0-4d79-932f-524e056d778f.jpg" alt="Prank Image">
-        <p>Is this you? email zaidoa_95@hotmail.com</p> <!-- Röd text bredvid bilden -->
+        <p id="orobo-text" style="display: none;">Is this you? email zaidoa_95@hotmail.com</p> <!-- Röd text bredvid bilden -->
     </div>
     <script>
         const terminal = document.getElementById('terminal');
-        const oroboElement = document.getElementById('orobo');
+        const oroboContainer = document.getElementById('orobo-container');
+        const oroboText = document.getElementById('orobo-text');
         const commands = [
             'Connecting to server...',
             'Accessing database...',
@@ -85,15 +86,20 @@
             if (i < commands.length) {
                 terminal.textContent += commands[i] + '\n';
                 i++;
+
+                // Visa bilden samtidigt som kommandon börjar skrivas ut
+                if (i === 1) {
+                    oroboContainer.style.display = 'flex';
+                }
             } else {
-                clearInterval(interval);
+                clearInterval(interval); // Stoppa kommandona
                 terminal.textContent += '\nSYSTEM BREACHED.\n';
                 terminal.innerHTML += '<span class="blinking">_</span>';
                 
-                // Visa texten och bilden bredvid varandra i mitten
+                // Visa den röda texten bredvid bilden sist
                 setTimeout(() => {
-                    oroboElement.style.display = 'flex'; // Visa text och bild bredvid varandra
-                }, 3000);
+                    oroboText.style.display = 'block';
+                }, 3000); // Vänta 3 sekunder efter sista kommandot
             }
         }, 1000);
     </script>
