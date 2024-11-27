@@ -42,18 +42,22 @@
             left: 50%;
             transform: translate(-50%, -50%);
             display: none; /* Dold tills den visas */
-            text-align: center; /* Gör både texten och bilden centrerad */
+            display: flex; /* Gör så att bilden och texten visas bredvid varandra */
+            align-items: center; /* Centrera text och bild vertikalt */
+            gap: 20px; /* Avstånd mellan text och bild */
         }
 
         #orobo img {
-            max-width: 80%; /* Anpassa bildens storlek till skärmen */
+            width: 150px; /* Gör bilden mindre */
             height: auto;
-            border: 5px solid lime;
+            border: 3px solid lime;
         }
 
         #orobo p {
-            margin: 0 0 10px; /* Gör avstånd mellan texten och bilden */
-            font-size: 16px; /* Anpassa storlek på texten */
+            margin: 0; /* Ta bort standardmarginalen */
+            font-size: 24px; /* Större text */
+            font-weight: bold; /* Fet text */
+            color: red; /* Gör texten röd */
         }
     </style>
 </head>
@@ -61,8 +65,8 @@
     <h1>Hacking in Progress...</h1>
     <div id="terminal">Initializing system...\n</div>
     <div id="orobo">
-        <p>Du har blivit hackad! 😱</p> <!-- Text ovanför bilden -->
         <img src="9099eac2-c3d0-4d79-932f-524e056d778f.jpg" alt="Prank Image">
+        <p>Is this you? email zaidoa_95@hotmail.com</p> <!-- Röd text bredvid bilden -->
     </div>
     <script>
         const terminal = document.getElementById('terminal');
@@ -86,9 +90,9 @@
                 terminal.textContent += '\nSYSTEM BREACHED.\n';
                 terminal.innerHTML += '<span class="blinking">_</span>';
                 
-                // Visa texten och bilden i mitten efter 3 sekunder
+                // Visa texten och bilden bredvid varandra i mitten
                 setTimeout(() => {
-                    oroboElement.style.display = 'block'; // Visa texten och bilden
+                    oroboElement.style.display = 'flex'; // Visa text och bild bredvid varandra
                 }, 3000);
             }
         }, 1000);
