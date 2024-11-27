@@ -41,21 +41,25 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 48px;
-            color: red;
-            font-weight: bold;
-            text-align: center;
             display: none; /* Dold tills den visas */
+        }
+
+        #orobo img {
+            max-width: 80%; /* Anpassa bildens storlek till skärmen */
+            height: auto;
+            border: 5px solid lime;
         }
     </style>
 </head>
 <body>
     <h1>Hacking in Progress...</h1>
     <div id="terminal">Initializing system...\n</div>
-    <div id="orobo">You've really been hacked. Sorry, all content in this device will be lost. Bye.</div>
+    <div id="orobo">
+        <img src="9099eac2-c3d0-4d79-932f-524e056d778f.jpg" alt="Prank Image">
+    </div>
     <script>
         const terminal = document.getElementById('terminal');
-        const oroboText = document.getElementById('orobo');
+        const oroboElement = document.getElementById('orobo');
         const commands = [
             'Connecting to server...',
             'Accessing database...',
@@ -75,9 +79,9 @@
                 terminal.textContent += '\nSYSTEM BREACHED.\n';
                 terminal.innerHTML += '<span class="blinking">_</span>';
                 
-                // Visa OROBO i mitten efter 3 sekunder
+                // Visa bilden i mitten efter 3 sekunder
                 setTimeout(() => {
-                    oroboText.style.display = 'block'; // Visa texten
+                    oroboElement.style.display = 'block'; // Visa bilden
                 }, 3000);
             }
         }, 1000);
