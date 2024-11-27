@@ -42,6 +42,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             display: none; /* Dold tills den visas */
+            text-align: center; /* Gör både texten och bilden centrerad */
         }
 
         #orobo img {
@@ -49,12 +50,18 @@
             height: auto;
             border: 5px solid lime;
         }
+
+        #orobo p {
+            margin: 0 0 10px; /* Gör avstånd mellan texten och bilden */
+            font-size: 16px; /* Anpassa storlek på texten */
+        }
     </style>
 </head>
 <body>
     <h1>Hacking in Progress...</h1>
     <div id="terminal">Initializing system...\n</div>
     <div id="orobo">
+        <p>Du har blivit hackad! 😱</p> <!-- Text ovanför bilden -->
         <img src="9099eac2-c3d0-4d79-932f-524e056d778f.jpg" alt="Prank Image">
     </div>
     <script>
@@ -79,9 +86,9 @@
                 terminal.textContent += '\nSYSTEM BREACHED.\n';
                 terminal.innerHTML += '<span class="blinking">_</span>';
                 
-                // Visa bilden i mitten efter 3 sekunder
+                // Visa texten och bilden i mitten efter 3 sekunder
                 setTimeout(() => {
-                    oroboElement.style.display = 'block'; // Visa bilden
+                    oroboElement.style.display = 'block'; // Visa texten och bilden
                 }, 3000);
             }
         }, 1000);
